@@ -3,16 +3,17 @@ const Cart = require('./cart');
 
 function main() {
   const cart = new Cart();
-  const product = new Product('book');
-  cart.addProduct(product);
+
+  const headphone = new Product('Sony Wireless headphone');
+  cart.addProduct(headphone);
+
+  const applePencil = new Product('Apple Pencil');
+  cart.addProduct(applePencil, 2);
 
   console.log('Cart = ' + cart);
-
-  const products = cart.getProducts();
-
-  console.log('----------------------------------------');
-  console.log('products = ' + products);
-  console.log('----------------------------------------');
+  cart.removeProduct(applePencil);
+  console.log('Cart = ' + cart);
+  console.log('removedProduct = ' + cart.getRemovedProducts());
 }
 
 main();
