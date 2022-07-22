@@ -1,4 +1,5 @@
 const Product = require('./product');
+const Price = require('./price');
 const Cart = require('./cart');
 const Item = require('./item');
 
@@ -13,15 +14,15 @@ function getIdGenerator() {
 function main() {
   const cartIdGenerator = getIdGenerator();
 
-  const cart1 = new Cart(cartIdGenerator);
-  const cart2 = new Cart(cartIdGenerator);
+  const cart1 = new Cart(cartIdGenerator());
+  const cart2 = new Cart(cartIdGenerator());
 
-  const pencil = new Product('Apple Pencil');
+  const pencil = new Product('Apple Pencil', new Price(5, 'USD'));
   const item1 = new Item(pencil, 2);
   cart1.addItem(item1);
   cart2.addItem(item1);
 
-  const headphone = new Product('Sony Wireless headphone');
+  const headphone = new Product('Sony Wireless headphone', new Price(1, 'USD'));
   const item2 = new Item(headphone);
   cart1.addItem(item2);
   cart2.addItem(item2);

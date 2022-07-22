@@ -1,6 +1,7 @@
 class Product {
-  constructor(name) {
+  constructor(name, price) {
     this.name = name;
+    this.price = price;
   }
 
   getName() {
@@ -8,7 +9,7 @@ class Product {
   }
 
   toString() {
-    return `Product { name : ${this.name} }`;
+    return `Product { name : ${this.name}, price : ${this.price}}`;
   }
 }
 

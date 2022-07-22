@@ -1,10 +1,10 @@
 const Item = require('./item');
 
 class Cart {
-  constructor(generateId) {
+  constructor(id) {
     this.items = [];
     this.removedItems = [];
-    this.id = generateId();
+    this.id = id;
   }
 
   addItem(item) {
@@ -30,7 +30,7 @@ class Cart {
   }
 
   equals(otherCard) {
-    return this == otherCard;
+    return this.id == otherCard.id;
   }
 
   toString() {
