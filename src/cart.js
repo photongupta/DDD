@@ -1,34 +1,40 @@
 const Item = require('./item');
 
 class Cart {
-  constructor() {
+  constructor(generateId) {
     this.items = [];
     this.removedItems = [];
+    this.id = generateId();
   }
 
-  addProduct(product, quantity = 1) {
-    this.items.push(new Item(product, quantity));
+  addItem(item) {
+    this.items.push(item);
   }
 
-  removeProduct(product) {
-    this.items = this.items.filter((item) => {
-      if (item.product.getName() == product.getName()) {
-        this.removedItems.push(item);
+  removeItem(item) {
+    this.items = this.items.filter((i) => {
+      if (i.product.getName() != item.product.getName()) {
+        return true;
       }
-      return item.product.getName() != product.getName();
+      this.removedItems.push(i);
+      return false;
     });
   }
 
-  getRemovedProducts() {
-    return this.removedItems.slice();
-  }
-
-  getProducts() {
+  getItems() {
     return this.items.slice();
   }
 
+  getRemovedItems() {
+    return this.removedItems.slice();
+  }
+
+  equals(otherCard) {
+    return this == otherCard;
+  }
+
   toString() {
-    return JSON.stringify(this.items);
+    return `Cart { id: ${this.id}, items : [${this.items}], removedItems : [${this.removedItems}]}`;
   }
 }
 

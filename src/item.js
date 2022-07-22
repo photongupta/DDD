@@ -5,7 +5,9 @@ class Item {
   }
 
   toString() {
-    return `Item {Product :${this.product.toString()}, Quantity :${this.quantity.toString()}}`;
+    return `Item { Product : ${this.product.toString()}, Quantity : ${
+      this.quantity
+    } }`;
   }
 }
 
