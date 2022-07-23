@@ -1,5 +1,5 @@
-const Product = require('../src/product');
-const Cart = require('../src/cart');
+const Product = require('../src/domain/product');
+const Cart = require('../src/domain/cart');
 const {assert} = require('chai');
 
 describe('Product', function () {

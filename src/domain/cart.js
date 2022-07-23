@@ -5,6 +5,7 @@ class Cart {
     this.items = [];
     this.removedItems = [];
     this.id = id;
+    this.checkedOut = false;
   }
 
   addItem(item) {
@@ -27,6 +28,17 @@ class Cart {
 
   getRemovedItems() {
     return this.removedItems.slice();
+  }
+
+  checkOut() {
+    this.checkedOut = true;
+    const products = [];
+    this.items.forEach((item) => {
+      for (let index = 0; index < item.quantity; index++) {
+        products.push(item.product);
+      }
+    });
+    return products;
   }
 
   equals(otherCard) {
